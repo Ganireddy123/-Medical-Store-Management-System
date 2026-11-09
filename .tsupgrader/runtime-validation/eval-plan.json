@@ -1,0 +1,54 @@
+{
+  "generatedOnPlatform": "win32",
+  "projectType": "electron",
+  "setup": [],
+  "assertions": [
+    {
+      "name": "lint-pass",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "lint"
+      ],
+      "verificationMethod": "exit-code",
+      "expected": "0",
+      "timeoutSeconds": 180
+    },
+    {
+      "name": "tests-pass",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "verificationMethod": "test-results",
+      "expected": "0",
+      "timeoutSeconds": 300
+    },
+    {
+      "name": "renderer-builds",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "verificationMethod": "exit-code",
+      "expected": "0",
+      "timeoutSeconds": 300
+    },
+    {
+      "name": "electron-renderer-ipc-persistence-smoke",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "electron:smoke"
+      ],
+      "verificationMethod": "exit-code",
+      "expected": "0",
+      "timeoutSeconds": 120
+    }
+  ]
+}
